@@ -34,6 +34,7 @@ import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Px;
+import androidx.core.view.ViewCompat;
 
 final class ViewFinderView extends View {
 
@@ -175,7 +176,7 @@ final class ViewFinderView extends View {
         mFrameRatioWidth = ratioWidth;
         mFrameRatioHeight = ratioHeight;
         invalidateFrameRect();
-        if (isLaidOut()) {
+        if (ViewCompat.isLaidOut(this)) {
             invalidate();
         }
     }
@@ -189,7 +190,7 @@ final class ViewFinderView extends View {
             @FloatRange(from = 0, fromInclusive = false) final float ratioWidth) {
         mFrameRatioWidth = ratioWidth;
         invalidateFrameRect();
-        if (isLaidOut()) {
+        if (ViewCompat.isLaidOut(this)) {
             invalidate();
         }
     }
@@ -203,7 +204,7 @@ final class ViewFinderView extends View {
             @FloatRange(from = 0, fromInclusive = false) final float ratioHeight) {
         mFrameRatioHeight = ratioHeight;
         invalidateFrameRect();
-        if (isLaidOut()) {
+        if (ViewCompat.isLaidOut(this)) {
             invalidate();
         }
     }
@@ -215,7 +216,7 @@ final class ViewFinderView extends View {
 
     void setMaskColor(@ColorInt final int color) {
         mMaskPaint.setColor(color);
-        if (isLaidOut()) {
+        if (ViewCompat.isLaidOut(this)) {
             invalidate();
         }
     }
@@ -226,7 +227,7 @@ final class ViewFinderView extends View {
 
     void setMaskVisible(final boolean visible) {
         mMaskVisible = visible;
-        if (isLaidOut()) {
+        if (ViewCompat.isLaidOut(this)) {
             invalidate();
         }
     }
@@ -238,7 +239,7 @@ final class ViewFinderView extends View {
 
     void setFrameColor(@ColorInt final int color) {
         mFramePaint.setColor(color);
-        if (isLaidOut()) {
+        if (ViewCompat.isLaidOut(this)) {
             invalidate();
         }
     }
@@ -258,7 +259,7 @@ final class ViewFinderView extends View {
 
     void setFrameThickness(@Px final int thickness) {
         mFramePaint.setStrokeWidth(thickness);
-        if (isLaidOut()) {
+        if (ViewCompat.isLaidOut(this)) {
             invalidate();
         }
     }
@@ -279,7 +280,7 @@ final class ViewFinderView extends View {
 
     void setFrameCornersSize(@Px final int size) {
         mFrameCornersSize = size;
-        if (isLaidOut()) {
+        if (ViewCompat.isLaidOut(this)) {
             invalidate();
         }
     }
@@ -291,7 +292,7 @@ final class ViewFinderView extends View {
 
     void setFrameCornersRadius(@Px final int radius) {
         mFrameCornersRadius = radius;
-        if (isLaidOut()) {
+        if (ViewCompat.isLaidOut(this)) {
             invalidate();
         }
     }
@@ -304,7 +305,7 @@ final class ViewFinderView extends View {
     void setFrameSize(@FloatRange(from = 0.1, to = 1.0) final float size) {
         mFrameSize = size;
         invalidateFrameRect();
-        if (isLaidOut()) {
+        if (ViewCompat.isLaidOut(this)) {
             invalidate();
         }
     }
@@ -317,7 +318,7 @@ final class ViewFinderView extends View {
     public void setFrameVerticalBias(@FloatRange(from = 0.0f, to = 1.0f) final float bias) {
         mFrameVerticalBias = bias;
         invalidateFrameRect();
-        if (isLaidOut()) {
+        if (ViewCompat.isLaidOut(this)) {
             invalidate();
         }
     }

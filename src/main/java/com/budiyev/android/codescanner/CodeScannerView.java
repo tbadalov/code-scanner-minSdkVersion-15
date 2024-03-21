@@ -47,6 +47,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.StyleRes;
+import androidx.core.view.ViewCompat;
 
 /**
  * A view to display code scanner preview
@@ -722,7 +723,7 @@ public final class CodeScannerView extends ViewGroup {
         Objects.requireNonNull(position);
         final boolean changed = position != mAutoFocusButtonPosition;
         mAutoFocusButtonPosition = position;
-        if (changed && isLaidOut()) {
+        if (changed && ViewCompat.isLaidOut(this)) {
             requestLayout();
         }
     }
@@ -1039,7 +1040,7 @@ public final class CodeScannerView extends ViewGroup {
             final int parentWidth, final int parentHeight) {
         final int width = button.getMeasuredWidth();
         final int height = button.getMeasuredHeight();
-        final int layoutDirection = getLayoutDirection();
+        final int layoutDirection = ViewCompat.getLayoutDirection(this);
         switch (position) {
             case TOP_START: {
                 if (layoutDirection == LayoutDirection.RTL) {
